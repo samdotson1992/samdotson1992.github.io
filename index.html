@@ -10,8 +10,25 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Bungee+Inline|Montserrat+Subrayada:700|Roboto+Mono|Roboto+Slab|Rokkitt|Vollkorn" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css?family=Sarpanch:400,500,600" rel="stylesheet">
-
+            <!-- Load Leaflet from CDN -->
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+            integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+            crossorigin=""/>
+            <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+            integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+            crossorigin=""></script>
+        
+        
+            <!-- Load Esri Leaflet from CDN -->
+            <script src="https://unpkg.com/esri-leaflet@2.1.1/dist/esri-leaflet.js"
+            integrity="sha512-ECQqaYZke9cSdqlFG08zSkudgrdF6I1d8ViSa7I3VIszJyVqw4ng1G8sehEXlumdMnFYfzY0tMgdQa4WCs9IUw=="
+            crossorigin=""></script>
     <style>
+
+            #map { width: 100%;
+                  height: 40vh;
+             }
+
     /* Remove the navbar's default margin-bottom and rounded borders */
         
         .navbar {
@@ -234,10 +251,14 @@
         </div><br><br>
 
     </div>
+      <div id="map"></div>
     <footer class="container-fluid text-center">
         <p style="font-family: 'Sarpanch', sans-serif; font-size: 2em; font-weight: 600" >Live long and prosper.</p>
     </footer>
     <script>
+
+var map = L.map("map").setView([37.75, -122.23], 1);
+          L.esri.basemapLayer("Topographic").addTo(map);
         $(document).ready(function() {
             // Add smooth scrolling to all links in navbar + footer link
             $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
